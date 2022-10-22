@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
+import Navbar from '../components/Navbar';
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,9 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
        
+      <header>
+        <Navbar />
+      </header>
       </main>
 
       <footer className={styles.footer}>
