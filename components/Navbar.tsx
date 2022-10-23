@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
-import '../styles/Navbar.module.css';
 
 const Navbar: NextPage = () => {
 
