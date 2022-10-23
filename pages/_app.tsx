@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    user ? router.replace('/') : router.replace('/login');
+   // user ? router.replace('/') : router.replace('/login');
   }, [])
   //[user]
 
