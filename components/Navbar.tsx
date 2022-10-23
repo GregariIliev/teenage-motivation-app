@@ -2,9 +2,15 @@ import { NextPage } from "next";
 
 import Link from "next/link";
 
-import styles from '../styles/Navbar.module.css';
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+
+import '../styles/Navbar.module.css';
 
 const Navbar: NextPage = () => {
+
+    const user = useContext(UserContext);
+
     return (
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -12,7 +18,7 @@ const Navbar: NextPage = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <ul className="navbar-nav">
-                    <li className="p-0 m-2 text-white">
+                    <li className="li p-0 m-2 text-white">
                         <Link href='/'>Home</Link>
                     </li>
                 </ul>
@@ -21,17 +27,25 @@ const Navbar: NextPage = () => {
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div className="navbar-nav">
-                    <ul className="navbar-nav">
-                        <li className="p-0 m-2 text-white">
-                            <Link href='/register'>Register</Link>
-                        </li>
-                        <li className="p-0 m-2 text-white">
-                            <Link href='/login'>Login</Link>
-                        </li>
-                    </ul>
+                    {
+                        user
+                            ? <ul className="navbar-nav">
+                                <li className="p-0 m-2 text-white">
+                                    <Link href='/logout'>Logout</Link>
+                                </li>
+                            </ul>
+                            :
+                            <ul className="navbar-nav">
+                                <li className="p-0 m-2 text-white">
+                                    <Link href='/register'>Register</Link>
+                                </li>
+                                <li className="p-0 m-2 text-white">
+                                    <Link href='/login'>Login</Link>
+                                </li>
+                            </ul>
+                    }
                 </div>
             </div>
-
         </nav>
     )
 }
