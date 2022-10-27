@@ -11,6 +11,16 @@ const useUser = () => {
 
     const router = useRouter();
 
+    checkAuthState((userSinguedIn: User) => {
+        if (userSinguedIn) {
+            setUser(userSinguedIn);
+            setError(undefined);
+        } else {
+            setUser(undefined);
+            router.replace('/login');
+        }
+    });
+
     const authUserWhitFacebook = (e: any) => {
         e.preventDefault();
 
