@@ -15,10 +15,10 @@ const useUser = () => {
         e.preventDefault();
 
         facebookAuth()
-            .then((result) => {
+            .then((facebookUser) => {
                 // The signed-in user info.
 
-                setUser(result.user);
+                setUser(facebookUser.user);
                 router.replace('/');
                 // This gives you a Facebook Access Token. You can use it to access the Facebook API.
                 //const credential = FacebookAuthProvider.credentialFromResult(result);
