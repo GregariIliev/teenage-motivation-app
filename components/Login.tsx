@@ -33,11 +33,9 @@ export default function Login() {
                     <a href="#">Forgot password</a>
                     <Link href='/register'>Sing up</Link>
                 </div>
-                {
-                    error
-                        ? <p>Error ({error})</p>
-                        : null
-                }
+                {error
+                    ? error
+                    : null}
             </form>
         </>
     )
