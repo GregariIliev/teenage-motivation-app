@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FacebookAuthProvider, User } from "firebase/auth";
-import { facebookAuth } from '../firebase/authentication';
+import { facebookAuth, checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 
