@@ -16,5 +16,9 @@ export const registerWhitEmailAndPassword = (email: string, password: string) =>
 }
 
 export const checkAuthState = (callback: any) => {
-     return onAuthStateChanged(auth, callback); 
+     return onAuthStateChanged(auth, callback);
+}
+
+export const userSingOut = () => {
+     return auth.signOut()
 }
