@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
@@ -10,22 +9,12 @@ import { UserContext } from "../context/userContext";
 const Navbar: NextPage = () => {
 
     const { user } = useContext(UserContext);
-    const router = useRouter();
-    console.log(user);
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();
 
         user.userSingOut()
-            .then((res: any) => {
-                console.log(res);
-                console.log('logout');
-
-
-            }).catch((err: any) => {
-                console.log(err);
-
-            })
+            .then((res: any) => { }).catch((err: any) => { })
     }
 
     return (
