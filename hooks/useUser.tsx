@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FacebookAuthProvider, User } from "firebase/auth";
-import { facebookAuth, checkAuthState } from '../firebase/authentication';
+import { facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 
@@ -11,15 +11,17 @@ const useUser = () => {
 
     const router = useRouter();
 
-    checkAuthState((userSinguedIn: User) => {
-        if (userSinguedIn) {
-            setUser(userSinguedIn);
-            setError(undefined);
-        } else {
-            setUser(undefined);
-            router.replace('/login');
-        }
-    });
+    useEffect(() => {
+        checkAuthState((userSinguedIn: User) => {
+            if (userSinguedIn) {
+                setUser(userSinguedIn);
+                setError(undefined);
+            } else {
+                setUser(undefined);
+                router.replace('/login');
+            }
+        });
+    }, [user])
 
     const authUserWhitFacebook = (e: any) => {
         e.preventDefault();
@@ -50,7 +52,7 @@ const useUser = () => {
             });
     }
 
-    return { user, authUserWhitFacebook, error }
+    return { user, authUserWhitFacebook, userSingOut, error }
 }
 
 export default useUser;
