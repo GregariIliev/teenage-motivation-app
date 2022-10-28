@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
@@ -8,7 +9,24 @@ import { UserContext } from "../context/userContext";
 
 const Navbar: NextPage = () => {
 
-    const user = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const router = useRouter();
+    console.log(user);
+
+    const handleUserSingOut = (e: any) => {
+        e.preventDefault();
+
+        user.userSingOut()
+            .then((res: any) => {
+                console.log(res);
+                console.log('logout');
+
+
+            }).catch((err: any) => {
+                console.log(err);
+
+            })
+    }
 
     return (
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +48,8 @@ const Navbar: NextPage = () => {
                         user
                             ? <ul className="navbar-nav">
                                 <li className="p-0 m-2 text-white">
-                                    <Link href='/logout'>Logout</Link>
+                                    {/* <Link onClick={handleUserSingOut} href='#'>Logout</Link> */}
+                                    <button className="btn btn-primary" onClick={handleUserSingOut}>Logout</button>
                                 </li>
                             </ul>
                             :
