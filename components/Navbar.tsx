@@ -8,7 +8,7 @@ import { UserContext } from "../context/userContext";
 
 const Navbar: NextPage = () => {
 
-    const { user } = useContext(UserContext);
+    const user = useContext(UserContext);
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();
