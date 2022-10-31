@@ -23,7 +23,7 @@ export default function Login() {
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                     <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
                 </div>
-                <div className={styles.buttons}>
+                <div className="auth-buttons">
                     <button className="btn btn-primary" type="button">Login</button>
                     <button onClick={user.authUserWhitFacebook} className="btn btn-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">

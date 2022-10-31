@@ -13,7 +13,7 @@ export default function Register() {
                 <input type="password" className="form-control form-control-sm mb-3" />
             </div>
 
-            <div className="container d-flex align-items-center justify-content-center w-25 ">
+            <div className="auth-buttons">
                 <button className="btn btn-primary mt-5" type="button">Register</button>
             </div>
         </form>
