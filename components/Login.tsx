@@ -6,7 +6,7 @@ import { UserContext } from '../context/userContext';
 
 export default function Login() {
 
-    const { user } = useContext(UserContext);
+    const user = useContext(UserContext);
 
     return (
         <>
