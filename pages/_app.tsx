@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const user = useUser();
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={user}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
