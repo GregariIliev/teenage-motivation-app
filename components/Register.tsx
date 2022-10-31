@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react"
 
 export default function Register() {
@@ -15,6 +16,7 @@ export default function Register() {
 
             <div className="auth-buttons">
                 <button className="btn btn-primary mt-5" type="button">Register</button>
+                <Link className="m" href='/login'>Sing in</Link>
             </div>
         </form>
     )
