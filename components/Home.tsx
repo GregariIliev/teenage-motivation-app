@@ -1,10 +1,31 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "./Navbar";
+import Link from "next/link";
 
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+
+    const createHandler = (e: any) => {
+        e.preventDefault();
+
+        fetch('https://us-central1-teen-app-d6280.cloudfunctions.net/newTask' ,{
+            method: "POST",
+            headers: {
+                "Content-Aplication": "aplication/json"
+            },
+            body: JSON.stringify({message:"Hello World!"})
+        }).then(res => {
+            console.log(res);
+            
+        }).catch(err => {
+            console.log(err);
+            
+        })
+
+    }
+
     return (
         <>
             <Head>
@@ -16,9 +37,9 @@ export default function Home() {
                 <Navbar />
             </header>
             <main>
-                Hello World!
+                <button onClick={createHandler}>asd</button>
             </main>
-            <footer className={styles.footer}>
+            {/* <footer className={styles.footer}>
                 <a
                     href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                     target="_blank"
@@ -29,7 +50,7 @@ export default function Home() {
                         <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
                     </span>
                 </a>
-            </footer>
+            </footer> */}
         </>
     )
 }
