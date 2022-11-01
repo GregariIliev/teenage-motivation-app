@@ -9,7 +9,7 @@ const HomeImpl: NextPage = () => {
   const { user } = useContext(UserContext);
 
   return (
-    user ? <Home /> : null
+    <Home />
   )
 }
 
