@@ -1,0 +1,36 @@
+.task-card-container {
+    width: 190px;
+    height: 145px;
+}
+
+.title {
+    font-family: 'Poppins';
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1.5px #E6E6E6 solid;
+    width: 11rem;
+}
+
+.button-remove {
+    color: #FFB8B8;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+.button-edit {
+    color: #A2A2A2;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
