@@ -13,9 +13,12 @@ export default function Home() {
         fetch('https://us-central1-teen-app-d6280.cloudfunctions.net/newTask' ,{
             method: "POST",
             headers: {
-                "Content-Aplication": "aplication/json"
+                "Content-Type":"application/json"
             },
             body: JSON.stringify({message:"Hello World!"})
+        }).then(res => {
+            console.log(res.body);
+            return res.json()
         }).then(res => {
             console.log(res);
             
