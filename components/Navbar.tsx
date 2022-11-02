@@ -2,6 +2,8 @@ import { NextPage } from "next";
 
 import Link from "next/link";
 
+import styles from '../styles/Navbar.module.css';
+
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
