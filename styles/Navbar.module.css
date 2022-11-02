@@ -7,7 +7,7 @@
     background-color: #6BBED8;
 }
 
-.navbar-navigation {
+.navbar-ul-navigation {
     display: flex;
     align-items: center;
     margin: 0;
@@ -21,7 +21,7 @@
     color: #FFFFFF;
 }
 
-.navbar-username {
+.navbar-ul-username {
     list-style: none;
     position: absolute;
     right: 30px;
