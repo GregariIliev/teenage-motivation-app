@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 51px;
+    margin-top: 101px;
+    padding: 0px 30px;
+    background-color: #6BBED8;
+}
+
+.navbar-navigation {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.navbar ul li a:hover {
+    color: #FFFFFF;
+}
+
+.navbar-username {
+    list-style: none;
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    color: #405B63;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 33px;
+}
+
+.navbar ul li a {
+    color: #CDF2FE;
+}
