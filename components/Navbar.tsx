@@ -16,43 +16,28 @@ const Navbar: NextPage = () => {
         user.userSingOut()
             .then((res: any) => { }).catch((err: any) => { })
     }
-
     return (
-        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <ul className="navbar-nav">
-                    <li className="li p-0 m-2 text-white">
-                        <Link href='/'>Home</Link>
-                    </li>
-                </ul>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <div className="navbar-nav">
-                    {/* {
-                        user ?  */}
-                        <ul className="navbar-nav">
-                                <li className="p-0 m-2 text-white">
-                                    {/* <Link onClick={handleUserSingOut} href='#'>Logout</Link> */}
-                                    <button className="btn btn-primary" onClick={handleUserSingOut}>Logout</button>
-                                </li>
-                            </ul>
-                            {/* : */}
-                            <ul className="navbar-nav">
-                                <li className="p-0 m-2 text-white">
-                                    <Link href='/register'>Register</Link>
-                                </li>
-                                <li className="p-0 m-2 text-white">
-                                    <Link href='/login'>Login</Link>
-                                </li>
-                            </ul>
-                    {/* } */}
-                </div>
-            </div>
+        <nav className={styles['navbar']}>
+            <ul className={styles['navbar-navigation']}>
+                <li className="li p-0 m-2 text-white">
+                    <Link href='/tasks'>Today’s Tasks</Link>
+                </li>
+                <li className="li p-0 m-2 text-white">
+                    <Link href='/done-tasks'>Done Tasks</Link>
+                </li>
+                <li className="li p-0 m-2 text-white">
+                    <Link href='/calendar'>Calendar</Link>
+                </li>
+                <li className="li p-0 m-2 text-white">
+                    <Link href='/members'>Members</Link>
+                </li>
+                <li className="li p-0 m-2 text-white">
+                    <Link href='/points-collected'>Points Collected</Link>
+                </li>
+            </ul>
+            <ul className={styles['navbar-username']}>
+                <li><span>Welcome Josh!</span></li>
+            </ul>
         </nav>
     )
 }
