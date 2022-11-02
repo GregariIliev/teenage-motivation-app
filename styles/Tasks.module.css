@@ -1,0 +1,83 @@
+.task-create {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 54px;
+    margin: 15px 30px -5px 30px;
+}
+
+.create-task-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border: 2px solid #78DBFA;
+    border-radius: 60px;
+    text-align: center;
+    color: #78DBFA;
+}
+
+.create-task-button:hover {
+    color: #00c3ff;
+    border-color: #00c3ff;
+}
+
+.create-task-button span {
+    font-size: 40px;
+}
+
+.tasks-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.task-card-container {
+    width: 190px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    font-family: 'Poppins';
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1.5px #E6E6E6 solid;
+    width: 11rem;
+}
+
+.button-remove {
+    color: #FFB8B8;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+.button-edit {
+    color: #A2A2A2;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
