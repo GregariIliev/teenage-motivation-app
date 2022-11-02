@@ -9,7 +9,7 @@ export default function Login() {
     const user = useContext(UserContext);
 
     return (
-        <>
+        <div className='form-container'>
             <form className="form">
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -38,6 +38,6 @@ export default function Login() {
                     ? user.error
                     : null}
             </form>
-        </>
+        </div>
     )
 }
