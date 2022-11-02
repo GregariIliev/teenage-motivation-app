@@ -4,7 +4,20 @@ body {
   margin: 0;
   font-family: Poppins
 }
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 350px;
+  height: 500px;
   background-color: #212529;
   padding: 40px;
   border-radius: 5px;
