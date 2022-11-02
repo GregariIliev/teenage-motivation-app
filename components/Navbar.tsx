@@ -33,15 +33,15 @@ const Navbar: NextPage = () => {
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div className="navbar-nav">
-                    {
-                        user
-                            ? <ul className="navbar-nav">
+                    {/* {
+                        user ?  */}
+                        <ul className="navbar-nav">
                                 <li className="p-0 m-2 text-white">
                                     {/* <Link onClick={handleUserSingOut} href='#'>Logout</Link> */}
                                     <button className="btn btn-primary" onClick={handleUserSingOut}>Logout</button>
                                 </li>
                             </ul>
-                            :
+                            {/* : */}
                             <ul className="navbar-nav">
                                 <li className="p-0 m-2 text-white">
                                     <Link href='/register'>Register</Link>
@@ -50,7 +50,7 @@ const Navbar: NextPage = () => {
                                     <Link href='/login'>Login</Link>
                                 </li>
                             </ul>
-                    }
+                    {/* } */}
                 </div>
             </div>
         </nav>
