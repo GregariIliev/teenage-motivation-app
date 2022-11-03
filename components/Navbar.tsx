@@ -55,7 +55,7 @@ const Navbar: NextPage = () => {
                 </li>
             </ul>
             <ul className={styles['navbar-ul-username']}>
-                <li><span>Welcome Josh!</span></li>
+                <li><span>Welcome {user.user.email}!</span></li>
             </ul>
         </nav>
     )
