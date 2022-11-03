@@ -101,7 +101,7 @@ const useUser = () => {
             });
     }
 
-    return { user, authUserWhitFacebook, userSingOut, error }
+    return { user, authUserWhitFacebook, registerUserWhitEmailAndPassword, loginUserWhitEmailAndPassword, userSingOut, error }
 }
 
 export default useUser;
