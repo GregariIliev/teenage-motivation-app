@@ -17,8 +17,15 @@
   flex: 1;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+/* task selector */
+.footer {
+  border: solid black 5px;
+  align-items: flex-start;
+
 }
 
 .footer a {
@@ -116,13 +123,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
   .footer {
     border-color: #222;
   }
+
   .code {
     background: #111;
   }
+
   .logo img {
     filter: invert(1);
   }
