@@ -23,6 +23,31 @@ const useUser = () => {
         });
     }, [user])
 
+    const registerUserWhitEmailAndPassword = (e: any) => {
+        e.preventDefault();
+
+        const form = new FormData(e.target.form);
+
+        const email = form.get('email')?.toString();
+        const password = form.get('password')?.toString();
+
+        if (!email || !password) {
+            console.log('Fields are empty!');
+            return
+        }
+
+        registerWhitEmailAndPassword(email, password)
+            .then(user => {
+                console.log(user);
+
+                setUser(user);
+            }).catch(err => {
+                console.log(err);
+            })
+
+
+    }
+
     const authUserWhitFacebook = (e: any) => {
         e.preventDefault();
 
