@@ -48,7 +48,7 @@ const useUser = () => {
     }
 
     const loginUserWhitEmailAndPassword = (e: any) => {
-        e.prevetDefault();
+        e.preventDefault();
 
         const form = new FormData(e.target.form);
 
