@@ -38,10 +38,11 @@ const useUser = () => {
 
         registerWhitEmailAndPassword(email, password)
             .then(user => {
-                console.log(user);
-                router.push('/login');
+                if (user) {
+                    router.push('/login');
+                }
             }).catch(err => {
-                console.log(err);
+                setError(err);
             })
 
 
@@ -62,11 +63,12 @@ const useUser = () => {
 
         loginInWithEmailAndPassword(email, password)
             .then(user => {
-                console.log(user);
-                setUser(user)
+                if (user) {
+                    router.push('/');
+                }
             }).catch(err => {
                 console.log(err);
-
+                setError(error);
             })
 
     }
@@ -77,10 +79,9 @@ const useUser = () => {
         facebookAuth()
             .then((user) => {
                 // The signed-in user info.
-                console.log(user);
-
-                setUser(user);
-                router.replace('/');
+                if (user) {
+                    router.push('/');
+                }
                 // This gives you a Facebook Access Token. You can use it to access the Facebook API.
                 //const credential = FacebookAuthProvider.credentialFromResult(result);
                 //const accessToken = credential.accessToken;
