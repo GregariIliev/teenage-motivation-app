@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
+import Tasks from "./Tasks";
+import Aside from "./Aside";
 
 import styles from '../styles/Home.module.css';
 
@@ -21,10 +23,10 @@ export default function Home() {
             return res.json()
         }).then(res => {
             console.log(res);
-            
+
         }).catch(err => {
             console.log(err);
-            
+
         })
 
     }
@@ -39,8 +41,10 @@ export default function Home() {
             <header>
                 <Navbar />
             </header>
-            <main>
-                <button onClick={createHandler}>asd</button>
+            <main className={styles.main}>
+                    <Tasks />
+                    <Aside />
+                {/* <button onClick={createHandler}>asd</button> */}
             </main>
             {/* <footer className={styles.footer}>
                 <a
