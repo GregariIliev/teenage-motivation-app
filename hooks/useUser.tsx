@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 const useUser = () => {
 
-    const [user, setUser] = useState<User>();
+    const [user, setUser] = useState<UserCredential>();
     const [error, setError] = useState();
 
     const router = useRouter();
