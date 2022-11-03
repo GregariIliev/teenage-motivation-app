@@ -12,6 +12,8 @@ function Task(props) {
             e.target.name = "notDone"
         }
     }
+
+
     function DeleteElement(element) {
 
     }
