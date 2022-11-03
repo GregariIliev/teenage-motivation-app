@@ -1,7 +1,11 @@
 import Link from "next/link";
 
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+
 export default function Register() {
 
+    const user = useContext(UserContext);
 
     return (
         <div className="form-container">
@@ -14,7 +18,7 @@ export default function Register() {
                 </div>
 
                 <div className="auth-buttons">
-                    <button className="btn btn-primary mt-5" type="button">Register</button>
+                    <button onClick={user.registerUserWhitEmailAndPassword} className="btn btn-primary mt-5" type="button">Register</button>
                     <Link className="m" href='/login'>Sing in</Link>
                 </div>
             </form>
