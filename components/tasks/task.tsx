@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import TaskList from './task-list';
 
-
-function Task(taskName: string) {
+function Task(props) {
+    let task = props.task;
     return (
-        <div>
-            {taskName}
-        </div>
+        task.map((i) =>
+            (<p>{i}</p>))
     )
+
 }
 
 
