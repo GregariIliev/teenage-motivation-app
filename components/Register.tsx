@@ -10,16 +10,30 @@ export default function Register() {
     return (
         <div className="form-container">
             <form className="form">
-                <div className="d-flex flex-column align-items-center justify-content-center">
-                    <label htmlFor="email" className="form-label">Email</label>
-                    <input type="text-sm" name="email" className="form-control form-control-sm mb-3" />
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" name="password" className="form-control form-control-sm mb-3" />
+                <div className="mb-4">
+                    <h1 className="form-title">Welcome Onboard!</h1>
+                    <h2 className="form-title-description">Lets help you in completing your tasks</h2>
                 </div>
+                <div className="mb-2 w-100">
+                    <label htmlFor="full-name" className="form-label">Full Name</label>
+                    <input type="text-sm" name="full-name" className="form-control mb-2" />
+                </div>
+                <div className="mb-2 w-100">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input type="text-sm" name="email" className="form-control mb-2" />
+                </div>
+                <div className="mb-2 w-100">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" name="password" className="form-control mb-2" />
+                </div>
+                <div className="mb-2 w-100">
+                    <label htmlFor="repeat-password" className="form-label">Repeat Password</label>
+                    <input type="password" name="repeat-password" className="form-control mb-2" />
+                </div>
+                <div className="auth-buttons mt-4">
+                    <button onClick={user.registerUserWhitEmailAndPassword} className="btn w-100" type="button">Register</button>
+                    <span className="mt-2">Already have an account ? <span className="span-account"><Link href='/login'>Sing in</Link></span></span>
 
-                <div className="auth-buttons">
-                    <button onClick={user.registerUserWhitEmailAndPassword} className="btn btn-primary mt-5" type="button">Register</button>
-                    <Link className="m" href='/login'>Sing in</Link>
                 </div>
             </form>
         </div>
