@@ -8,9 +8,7 @@ const HomeImpl: NextPage = () => {
 
   const { user } = useContext(UserContext);
 
-  return (
-    <Home />
-  )
+  return user ? <Home /> : null;
 }
 
 export default HomeImpl;
