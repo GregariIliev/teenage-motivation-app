@@ -45,10 +45,10 @@ const Navbar: NextPage = () => {
             </ul>
             <ul className={styles['navbar-ul-navigation']}>
                 <li className="li p-0 m-2">
-                   <Link href={'/register'}>Register</Link>
+                    <Link href={'/register'}>Register</Link>
                 </li>
                 <li className="li p-0 m-2">
-                   <Link href={'/login'}>Login</Link>
+                    <Link href={'/login'}>Login</Link>
                 </li>
                 <li className="li p-0 m-2">
                    <Link href={'/logout'}>Logout</Link>
