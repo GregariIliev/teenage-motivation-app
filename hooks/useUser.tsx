@@ -39,8 +39,7 @@ const useUser = () => {
         registerWhitEmailAndPassword(email, password)
             .then(user => {
                 console.log(user);
-
-                setUser(user);
+                router.push('/login');
             }).catch(err => {
                 console.log(err);
             })
