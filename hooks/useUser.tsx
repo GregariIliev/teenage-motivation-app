@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
+import { User, UserCredential } from "firebase/auth";
+import { registerWhitEmailAndPassword, loginInWithEmailAndPassword, facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 
