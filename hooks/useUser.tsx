@@ -48,6 +48,30 @@ const useUser = () => {
 
     }
 
+    const loginUserWhitEmailAndPassword = (e: any) => {
+        e.prevetDefault();
+
+        const form = new FormData(e.target.form);
+
+        const email = form.get('email')?.toString();
+        const password = form.get('password')?.toString();
+
+        if (!email || !password) {
+            console.log('Login failed!');
+            return
+        }
+
+        loginInWithEmailAndPassword(email, password)
+            .then(res => {
+                console.log(res);
+
+            }).catch(err => {
+                console.log(err);
+
+            })
+
+    }
+
     const authUserWhitFacebook = (e: any) => {
         e.preventDefault();
 
