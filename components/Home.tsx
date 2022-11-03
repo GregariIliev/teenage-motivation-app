@@ -9,27 +9,27 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
 
-    const createHandler = (e: any) => {
-        e.preventDefault();
+    // const createHandler = (e: any) => {
+    //     e.preventDefault();
 
-        fetch('https://us-central1-teen-app-d6280.cloudfunctions.net/newTask' ,{
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({message:"Hello World!"})
-        }).then(res => {
-            console.log(res.body);
-            return res.json()
-        }).then(res => {
-            console.log(res);
+    //     fetch('http://127.0.0.1:5001/teen-app-d6280/us-central1/newTask', {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({ message: "Hello World!" })
+    //     }).then(res => {
+    //         console.log(res.body);
+    //         return res.json()
+    //     }).then(res => {
+    //         console.log(res);
 
-        }).catch(err => {
-            console.log(err);
+    //     }).catch(err => {
+    //         console.log(err);
 
-        })
+    //     })
 
-    }
+    // }
 
     return (
         <>
