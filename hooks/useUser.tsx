@@ -12,9 +12,9 @@ const useUser = () => {
     const router = useRouter();
 
     useEffect(() => {
-        checkAuthState((userSinguedIn: User) => {
-            if (userSinguedIn) {
-                setUser(userSinguedIn);
+        checkAuthState((user: UserCredential) => {
+            if (user) {
+                setUser(user);
                 setError(undefined);
             } else {
                 setUser(undefined);
