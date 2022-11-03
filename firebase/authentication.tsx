@@ -20,7 +20,7 @@ export const loginInWithEmailAndPassword = (email: string, password: string) => 
      return signInWithEmailAndPassword(auth, email, password);
 }
 export const checkAuthState = (callback: any) => {
-     //return onAuthStateChanged(auth, callback);
+     return onAuthStateChanged(auth, callback);
 }
 
 export const userSingOut = () => {
