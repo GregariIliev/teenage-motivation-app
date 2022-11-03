@@ -51,7 +51,7 @@ const Navbar: NextPage = () => {
                     <Link href={'/login'}>Login</Link>
                 </li>
                 <li className="li p-0 m-2">
-                   <Link href={'/logout'}>Logout</Link>
+                    <a onClick={handleUserSingOut} href="#">Logout</a>
                 </li>
             </ul>
             <ul className={styles['navbar-ul-username']}>
