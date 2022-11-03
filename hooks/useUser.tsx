@@ -62,9 +62,9 @@ const useUser = () => {
         }
 
         loginInWithEmailAndPassword(email, password)
-            .then(res => {
-                console.log(res);
-
+            .then(user => {
+                console.log(user);
+                setUser(user)
             }).catch(err => {
                 console.log(err);
 
