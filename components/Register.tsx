@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { useState } from "react"
 
 export default function Register() {
 
-    const [childNumber, setChildNumber] = useState(0);
 
     return (
         <div className="form-container">
