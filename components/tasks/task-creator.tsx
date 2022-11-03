@@ -1,6 +1,6 @@
 import Task from './task';
 import { useState } from 'react';
-
+import styles from "../../styles/task-styles.module.css"
 function TaskCreator() {
     const [task, setTask] = useState('');
     const [taskList, setTaskList] = useState([])
@@ -15,13 +15,15 @@ function TaskCreator() {
     }
     return (
         <div>
-            <form  >
+            <form className='input-form'>
 
                 <input type="text" name="title" placeholder='Input task name' onChange={inputCatch} value={task} />
 
-                <button onClick={handleSubmit} >Save Task</button>
+                <button onClick={handleSubmit} className="submit-button">Save Task</button>
             </form>
-            <Task task={taskList} />
+            <div className={styles.taskList}>
+                <Task task={taskList} />
+            </div>
         </div>
     )
 }

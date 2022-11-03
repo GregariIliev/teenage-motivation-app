@@ -1,0 +1,6 @@
+.taskList div {
+    display: flex;
+    border: solid black 3px;
+    margin: 3rem;
+    justify-content: space-between;
+}
