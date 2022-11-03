@@ -44,15 +44,23 @@ const Navbar: NextPage = () => {
                 </li>
             </ul>
             <ul className={styles['navbar-ul-navigation']}>
-                <li className="li p-0 m-2">
-                    <Link href={'/register'}>Register</Link>
-                </li>
-                <li className="li p-0 m-2">
-                    <Link href={'/login'}>Login</Link>
-                </li>
-                <li className="li p-0 m-2">
-                    <a onClick={handleUserSingOut} href="#">Logout</a>
-                </li>
+                {user.user
+                    ?
+                    <li className="li p-0 m-2">
+                        <a onClick={handleUserSingOut} href="#">Logout</a>
+                    </li>
+                    :
+                    <>
+                        <li className="li p-0 m-2">
+                            <Link href={'/register'}>Register</Link>
+                        </li>
+                        <li className="li p-0 m-2">
+                            <Link href={'/login'}>Login</Link>
+                        </li>
+                    </>
+                }
+
+
             </ul>
             <ul className={styles['navbar-ul-username']}>
                 <li><span>Welcome {user.user.email}!</span></li>
