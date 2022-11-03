@@ -1,6 +1,7 @@
 import {
      getAuth, signInWithPopup, onAuthStateChanged,
-     FacebookAuthProvider, createUserWithEmailAndPassword
+     FacebookAuthProvider, createUserWithEmailAndPassword,
+     signInWithEmailAndPassword
 } from "firebase/auth";
 import { app } from './config';
 
@@ -15,6 +16,9 @@ export const registerWhitEmailAndPassword = (email: string, password: string) =>
      return createUserWithEmailAndPassword(auth, email, password)
 }
 
+export const loginInWithEmailAndPassword = (email: string, password: string) => {
+     return signInWithEmailAndPassword(auth, email, password);
+}
 export const checkAuthState = (callback: any) => {
      //return onAuthStateChanged(auth, callback);
 }
