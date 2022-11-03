@@ -10,9 +10,9 @@ export default function Register() {
             <form className="form">
                 <div className="d-flex flex-column align-items-center justify-content-center">
                     <label htmlFor="email" className="form-label">Email</label>
-                    <input type="text-sm" className="form-control form-control-sm mb-3" />
+                    <input type="text-sm" name="email" className="form-control form-control-sm mb-3" />
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control form-control-sm mb-3" />
+                    <input type="password" name="password" className="form-control form-control-sm mb-3" />
                 </div>
 
                 <div className="auth-buttons">
