@@ -4,12 +4,10 @@ import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 import { UserTMP } from '../types/userTypes';
-import { FirebaseError } from 'firebase/app';
 
 const useUser = (): UserTMP => {
 
     const [user, setUser] = useState<User>();
-    const [error, setError] = useState<FirebaseError>();
 
     const router = useRouter();
 
@@ -17,7 +15,6 @@ const useUser = (): UserTMP => {
         checkAuthState((user: User) => {
             if (user) {
                 setUser(user);
-                setError(undefined);
             } else {
                 setUser(undefined);
                 router.replace('/login');
@@ -25,90 +22,7 @@ const useUser = (): UserTMP => {
         });
     }, [user])
 
-    const registerUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
-        e.preventDefault();
-
-        const form = new FormData(e.target.form);
-
-        const email = form.get('email')?.toString();
-        const password = form.get('password')?.toString();
-
-        if (!email || !password) {
-            setError(new FirebaseError('auth/empty fields', 'Empty fields!'));
-            return
-        }
-
-        registerWhitEmailAndPassword(email, password)
-            .then(user => {
-                if (user) {
-                    router.push('/login');
-                }
-            }).catch(err => {
-                setError(err);
-            })
-
-
-    }
-
-    const loginUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
-        e.preventDefault();
-
-        const form = new FormData(e.target);
-
-        const email = form.get('email')?.toString();
-        const password = form.get('password')?.toString();
-
-        if (!email || !password) {
-            setError(new FirebaseError('auth/empty fields', 'Empty fields!'));
-            return
-        }
-
-        loginInWithEmailAndPassword(email, password)
-            .then(user => {
-                if (user) {
-                    router.push('/');
-                }
-            }).catch(err => {
-                setError(err);
-            })
-
-    }
-
-    const authUserWhitFacebook = (e: BaseSyntheticEvent) => {
-        e.preventDefault();
-
-        facebookAuth()
-            .then((user) => {
-                // The signed-in user info.
-                if (user) {
-                    router.push('/');
-                }
-                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-                //const credential = FacebookAuthProvider.credentialFromResult(result);
-                //const accessToken = credential.accessToken;
-
-                // ...
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                setError(error);
-                //const errorCode = error.code;
-                //const errorMessage = error.message;
-                // The email of the user's account used.
-                //const email = error.customData.email;
-                // The AuthCredential type that was used.
-                //const credential = FacebookAuthProvider.credentialFromError(error);
-
-                // ...
-            });
-    }
-    const authUser = {
-        registerUserWhitEmailAndPassword,
-        loginUserWhitEmailAndPassword,
-        authUserWhitFacebook,
-        userSingOut
-    }
-    return { user, authUser, error }
+    return { user }
 }
 
 export default useUser;
