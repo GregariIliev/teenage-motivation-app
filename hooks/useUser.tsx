@@ -4,11 +4,12 @@ import { registerWhitEmailAndPassword, loginInWithEmailAndPassword, facebookAuth
 
 import { useRouter } from 'next/router';
 import { UserTMP } from '../types/userTypes';
+import { FirebaseError } from 'firebase/app';
 
 const useUser = (): UserTMP => {
 
     const [user, setUser] = useState<User>();
-    const [error, setError] = useState();
+    const [error, setError] = useState<FirebaseError>();
 
     const router = useRouter();
 
