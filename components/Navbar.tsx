@@ -5,23 +5,19 @@ import Link from "next/link";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
-import styles from '../styles/Navbar.module.css';
+import { userSingOut } from "../firebase/authentication";
 
+import styles from '../styles/Navbar.module.css';
 
 const Navbar: NextPage = () => {
 
-    const { user, authUser } = useContext(UserContext);
-    const router = useRouter();
+    const { user } = useContext(UserContext);
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();
 
-        authUser?.userSingOut()
-            .then((res: any) => {
-                router.replace('/login');
-            }).catch((err: any) => {
-                console.log(err);
-            })
+        userSingOut()
+            .then(() => { }).catch(() => { });
     }
     return (
         <nav className={styles['navbar']}>
@@ -58,8 +54,6 @@ const Navbar: NextPage = () => {
                         </li>
                     </>
                 }
-
-
             </ul>
             <ul className={styles['navbar-ul-username']}>
                 <li><span>Welcome {user?.email}!</span></li>

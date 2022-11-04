@@ -1,16 +1,52 @@
+import { FirebaseError } from "firebase/app";
+import error from "next/error";
 import Link from "next/link";
+import router from "next/router";
 
-import { useContext } from "react";
+import { BaseSyntheticEvent, useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
+import { registerWhitEmailAndPassword } from "../firebase/authentication";
 
 export default function Register() {
 
-    const { authUser, error } = useContext(UserContext);
+    const [error, setError] = useState<FirebaseError>();
+
+    const registerUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
+        e.preventDefault();
+
+        const form = new FormData(e.target);
+
+        const fullName = form.get('full-name')?.toString();
+        const email = form.get('email')?.toString();
+        const password = form.get('password')?.toString();
+        const repeatPassword = form.get('repeat-password')?.toString();
+
+
+        if (!fullName || !email || !password || !repeatPassword) {
+            setError(new FirebaseError('auth/empty fields', 'Empty fields!'));
+            return
+        }
+
+        if (password !== repeatPassword) {
+            setError(new FirebaseError('auth/passwords not match', 'passwords not match'));
+            return
+        }
+
+        registerWhitEmailAndPassword(email, password)
+            .then(user => {
+                if (user) {
+                    router.push('/login');
+                }
+            }).catch(err => {
+                setError(err);
+            })
+
+
+    }
 
     return (
         <div className="form-container">
-
-            <form onSubmit={authUser?.registerUserWhitEmailAndPassword} className="form">
+            <form onSubmit={registerUserWhitEmailAndPassword} className="form">
                 <div className="mb-4">
                     <h1 className="form-title">Welcome Onboard!</h1>
                     <h2 className="form-title-description">Lets help you in completing your tasks</h2>
