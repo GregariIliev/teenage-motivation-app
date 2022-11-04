@@ -1,10 +1,8 @@
 import { FirebaseError } from "firebase/app";
-import error from "next/error";
 import Link from "next/link";
 import router from "next/router";
 
-import { BaseSyntheticEvent, useContext, useState } from "react";
-import { UserContext } from "../context/userContext";
+import { BaseSyntheticEvent, useState } from "react";
 import { registerWhitEmailAndPassword } from "../firebase/authentication";
 
 export default function Register() {
