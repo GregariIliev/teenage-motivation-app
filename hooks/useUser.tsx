@@ -3,8 +3,9 @@ import { User } from "firebase/auth";
 import { registerWhitEmailAndPassword, loginInWithEmailAndPassword, facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
+import { UserTMP } from '../types/userTypes';
 
-const useUser = () => {
+const useUser = (): UserTMP => {
 
     const [user, setUser] = useState<User>();
     const [error, setError] = useState();
