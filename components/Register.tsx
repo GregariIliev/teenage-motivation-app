@@ -16,19 +16,19 @@ export default function Register() {
                 </div>
                 <div className="mb-2 w-100">
                     <label htmlFor="full-name" className="form-label">Full Name</label>
-                    <input type="text-sm" name="full-name" className="form-control mb-2" />
+                    <input type="text-sm" name="full-name" className="form-control mb-2" required />
                 </div>
                 <div className="mb-2 w-100">
                     <label htmlFor="email" className="form-label">Email</label>
-                    <input type="text-sm" name="email" className="form-control mb-2" />
+                    <input type="email" name="email" className="form-control mb-2" required />
                 </div>
                 <div className="mb-2 w-100">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" name="password" className="form-control mb-2" />
+                    <input type="password" name="password" className="form-control mb-2" required />
                 </div>
                 <div className="mb-2 w-100">
                     <label htmlFor="repeat-password" className="form-label">Repeat Password</label>
-                    <input type="password" name="repeat-password" className="form-control mb-2" />
+                    <input type="password" name="repeat-password" className="form-control mb-2" required />
                 </div>
                 <div className="auth-buttons mt-4">
                     <button onClick={user.registerUserWhitEmailAndPassword} className="btn w-100" type="button">Register</button>

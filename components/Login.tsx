@@ -15,12 +15,11 @@ export default function Login() {
                 </div>
                 <div className="mb-3 w-100">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
-                    <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
                 </div>
                 <div className="mb-3 w-100">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" name="password" className="form-control" id="exampleInputPassword1" />
-                    <span className='span-forgot-password'><a href="#">Forgot password?</a></span>
+                    <input type="password" name="password" className="form-control" id="exampleInputPassword1" required />
                 </div>
                 {/* <div className="mb-3 form-check">
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
