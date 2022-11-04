@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { User } from "firebase/auth";
 import { registerWhitEmailAndPassword, loginInWithEmailAndPassword, facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
 
