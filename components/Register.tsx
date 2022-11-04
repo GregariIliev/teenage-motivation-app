@@ -5,7 +5,7 @@ import { UserContext } from "../context/userContext";
 
 export default function Register() {
 
-    const user = useContext(UserContext);
+    const { authUser, error } = useContext(UserContext);
 
     return (
         <div className="form-container">
