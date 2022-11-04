@@ -15,7 +15,7 @@ export interface UserCollection {
     user: UserAuth,
     fullName: string,
     rol: Rol,
-    family: Family
+    family: Family | undefined
     requestMembers: string[] | undefined, //only whit requests
     currentTasks: [],
     doneTasks: [],
