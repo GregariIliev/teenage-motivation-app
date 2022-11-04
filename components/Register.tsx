@@ -9,7 +9,8 @@ export default function Register() {
 
     return (
         <div className="form-container">
-            <form className="form">
+
+            <form onSubmit={authUser?.registerUserWhitEmailAndPassword} className="form">
                 <div className="mb-4">
                     <h1 className="form-title">Welcome Onboard!</h1>
                     <h2 className="form-title-description">Lets help you in completing your tasks</h2>
