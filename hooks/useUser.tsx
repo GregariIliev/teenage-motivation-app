@@ -3,9 +3,9 @@ import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
-import { UserTMP } from '../types/userTypes';
+import { UserAuth } from '../types/userTypes';
 
-const useUser = (): UserTMP => {
+const useUser = (): UserAuth => {
 
     const [user, setUser] = useState<User>();
 
