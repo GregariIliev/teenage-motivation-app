@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
 
-export type UserTMP = {
+export type UserAuth = {
     user: User | undefined
 }
