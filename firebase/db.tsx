@@ -12,6 +12,5 @@ export const addToCollection = async (collectionPath: string, user: User, fullNa
         return await addDoc(collection(db, collectionPath), userT);
     } catch (err) {
         console.log(err);
-        
     }
 }
