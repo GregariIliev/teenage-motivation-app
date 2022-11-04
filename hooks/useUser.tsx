@@ -34,7 +34,7 @@ const useUser = (): UserTMP => {
         const password = form.get('password')?.toString();
 
         if (!email || !password) {
-            console.log('Fields are empty!');
+            setError(new FirebaseError('auth/empty fields', 'Empty fields!'));
             return
         }
 
@@ -59,7 +59,7 @@ const useUser = (): UserTMP => {
         const password = form.get('password')?.toString();
 
         if (!email || !password) {
-            console.log('Login failed!');
+            setError(new FirebaseError('auth/empty fields', 'Empty fields!'));
             return
         }
 
@@ -69,8 +69,7 @@ const useUser = (): UserTMP => {
                     router.push('/');
                 }
             }).catch(err => {
-                console.log(err);
-                setError(error);
+                setError(err);
             })
 
     }
