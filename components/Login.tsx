@@ -10,7 +10,7 @@ export default function Login() {
 
     return (
         <div className='form-container'>
-            <form className="form">
+            <form onSubmit={authUser?.loginUserWhitEmailAndPassword} className="form">
                 <div className='mb-4'>
                     <h1 className='form-title'>Welcome Back!</h1>
                 </div>
