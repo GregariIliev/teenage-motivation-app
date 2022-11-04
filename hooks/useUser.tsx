@@ -102,8 +102,13 @@ const useUser = (): UserTMP => {
                 // ...
             });
     }
-
-    return { user, authUserWhitFacebook, registerUserWhitEmailAndPassword, loginUserWhitEmailAndPassword, userSingOut, error }
+    const authUser = {
+        registerUserWhitEmailAndPassword,
+        loginUserWhitEmailAndPassword,
+        authUserWhitFacebook,
+        userSingOut
+    }
+    return { user, authUser, error }
 }
 
 export default useUser;
