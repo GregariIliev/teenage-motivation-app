@@ -32,9 +32,8 @@ export default function Register() {
                 </div>
                 {error ? <p className="auth-error">{error.code.split('/')[1]}</p> : null}
                 <div className="auth-buttons mt-4">
-                    <button onClick={user.registerUserWhitEmailAndPassword} className="btn w-100" type="button">Register</button>
+                    <input className="btn w-100" type="submit" value="Register" />
                     <span className="mt-2">Already have an account ? <span className="span-account"><Link href='/login'>Sing in</Link></span></span>
-
                 </div>
             </form>
         </div>
