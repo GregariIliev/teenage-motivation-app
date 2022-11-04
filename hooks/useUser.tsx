@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { User, UserCredential } from "firebase/auth";
+import { User } from "firebase/auth";
 import { registerWhitEmailAndPassword, loginInWithEmailAndPassword, facebookAuth, checkAuthState, userSingOut } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 
 const useUser = () => {
 
-    const [user, setUser] = useState<UserCredential>();
+    const [user, setUser] = useState<User>();
     const [error, setError] = useState();
 
     const router = useRouter();
 
     useEffect(() => {
-        checkAuthState((user: UserCredential) => {
+        checkAuthState((user: User) => {
             if (user) {
                 setUser(user);
                 setError(undefined);
