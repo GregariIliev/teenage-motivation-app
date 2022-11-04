@@ -11,13 +11,13 @@ import styles from '../styles/Navbar.module.css';
 
 const Navbar: NextPage = () => {
 
-    const user = useContext(UserContext);
+    const { user, authUser } = useContext(UserContext);
     const router = useRouter();
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();
 
-        user.userSingOut()
+        authUser?.userSingOut()
             .then((res: any) => {
                 router.replace('/login');
             }).catch((err: any) => {
@@ -44,7 +44,7 @@ const Navbar: NextPage = () => {
                 </li>
             </ul>
             <ul className={styles['navbar-ul-navigation']}>
-                {user.user
+                {user
                     ?
                     <li className="li p-0 m-2">
                         <a onClick={handleUserSingOut} href="#">Logout</a>
@@ -63,7 +63,7 @@ const Navbar: NextPage = () => {
 
             </ul>
             <ul className={styles['navbar-ul-username']}>
-                <li><span>Welcome {user.user.email}!</span></li>
+                <li><span>Welcome {user?.email}!</span></li>
             </ul>
         </nav>
     )
