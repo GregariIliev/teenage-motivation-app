@@ -24,7 +24,7 @@ const useUser = (): UserTMP => {
         });
     }, [user])
 
-    const registerUserWhitEmailAndPassword = (e: any) => {
+    const registerUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
         e.preventDefault();
 
         const form = new FormData(e.target.form);
@@ -49,7 +49,7 @@ const useUser = (): UserTMP => {
 
     }
 
-    const loginUserWhitEmailAndPassword = (e: any) => {
+    const loginUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
         e.preventDefault();
 
         const form = new FormData(e.target.form);
@@ -74,7 +74,7 @@ const useUser = (): UserTMP => {
 
     }
 
-    const authUserWhitFacebook = (e: any) => {
+    const authUserWhitFacebook = (e: BaseSyntheticEvent) => {
         e.preventDefault();
 
         facebookAuth()
