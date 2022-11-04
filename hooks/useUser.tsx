@@ -53,7 +53,7 @@ const useUser = (): UserTMP => {
     const loginUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
         e.preventDefault();
 
-        const form = new FormData(e.target.form);
+        const form = new FormData(e.target);
 
         const email = form.get('email')?.toString();
         const password = form.get('password')?.toString();
