@@ -117,6 +117,16 @@ a:hover {
   color: #62D2FF;
 }
 
+.auth-error {
+  background-color: #ffa978;
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px;
+  color: red;
+}
+
 * {
   box-sizing: border-box;
 }
