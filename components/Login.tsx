@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from '../styles/Login.module.css';
 
 import { useContext } from 'react';
 import { UserContext } from '../context/userContext';
