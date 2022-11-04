@@ -30,6 +30,7 @@ export default function Register() {
                     <label htmlFor="repeat-password" className="form-label">Repeat Password</label>
                     <input type="password" name="repeat-password" className="form-control mb-2" required />
                 </div>
+                {error ? <p className="auth-error">{error.code.split('/')[1]}</p> : null}
                 <div className="auth-buttons mt-4">
                     <button onClick={user.registerUserWhitEmailAndPassword} className="btn w-100" type="button">Register</button>
                     <span className="mt-2">Already have an account ? <span className="span-account"><Link href='/login'>Sing in</Link></span></span>
