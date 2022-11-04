@@ -3,7 +3,7 @@ import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
-import { UserAuth } from '../types/userTypes';
+import { UserAuth } from '../interfaces/userTypes';
 
 const useUser = (): UserAuth => {
 
