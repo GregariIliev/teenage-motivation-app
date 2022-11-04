@@ -1,6 +1,4 @@
-import { FirebaseError } from "firebase/app"
 import { User } from "firebase/auth"
-import { BaseSyntheticEvent } from "react"
 
 export type UserTMP = {
     user: User | undefined,

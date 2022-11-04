@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import { useContext } from 'react';
 import { UserContext } from '../context/userContext';
 
 export default function Login() {
