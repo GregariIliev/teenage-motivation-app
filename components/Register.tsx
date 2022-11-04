@@ -4,6 +4,7 @@ import router from "next/router";
 
 import { BaseSyntheticEvent, useState } from "react";
 import { registerWhitEmailAndPassword } from "../firebase/authentication";
+import { addToCollection } from "../firebase/db";
 
 export default function Register() {
 
@@ -31,8 +32,9 @@ export default function Register() {
         }
 
         registerWhitEmailAndPassword(email, password)
-            .then(user => {
+            .then(async (user) => {
                 if (user) {
+                    await addToCollection("users", user.user, fullName);
                     router.push('/login');
                 }
             }).catch(err => {
