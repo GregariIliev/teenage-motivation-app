@@ -1,7 +1,10 @@
-import { User } from "firebase/auth"
+import { User } from "firebase/auth";
+import { DocumentData } from "firebase/firestore";
 
 export interface UserAuth {
-    user: User | undefined
+    user: User | undefined,
+    updateUserStateData(userData: DocumentData): void
+
 }
 
 export interface UserCollection {
