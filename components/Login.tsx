@@ -2,9 +2,9 @@ import { FirebaseError } from 'firebase/app';
 import Link from 'next/link';
 import router from 'next/router';
 
-import { BaseSyntheticEvent, useContext, useEffect, useState } from 'react';
-import { UserContext } from '../context/userContext';
+import { BaseSyntheticEvent, useState } from 'react';
 import { facebookAuth, loginInWithEmailAndPassword } from '../firebase/authentication';
+import { getUserCollectionById } from '../firebase/db';
 
 export default function Login() {
 
@@ -24,11 +24,21 @@ export default function Login() {
         }
 
         loginInWithEmailAndPassword(email, password)
-            .then(user => {
+            .then(async (user) => {
                 if (user) {
+                    const usersSnapshot = await getUserCollectionById(user.user.uid);
+                    
+                    if (usersSnapshot) {
+                        usersSnapshot.forEach((u) => {
+                            const userData = u.data();
+
+                        })
+                    }
                     router.push('/');
                 }
             }).catch(err => {
+                console.log(err);
+
                 setError(err);
             })
 
