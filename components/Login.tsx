@@ -6,9 +6,12 @@ import { BaseSyntheticEvent, useState } from 'react';
 import { facebookAuth, loginInWithEmailAndPassword } from '../firebase/authentication';
 import { getUserCollectionById } from '../firebase/db';
 
+import useUser from '../hooks/useUser';
+
 export default function Login() {
 
     const [error, setError] = useState<FirebaseError>();
+    const { updateUserStateData } = useUser();
 
     const loginUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
         e.preventDefault();
@@ -27,18 +30,15 @@ export default function Login() {
             .then(async (user) => {
                 if (user) {
                     const usersSnapshot = await getUserCollectionById(user.user.uid);
-                    
+
                     if (usersSnapshot) {
                         usersSnapshot.forEach((u) => {
-                            const userData = u.data();
-
+                            updateUserStateData(u.data());
                         })
                     }
                     router.push('/');
                 }
             }).catch(err => {
-                console.log(err);
-
                 setError(err);
             })
 
