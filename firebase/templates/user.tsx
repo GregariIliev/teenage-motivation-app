@@ -15,3 +15,5 @@ export const userTemplate = (user: User, fullName: string) => {
 
     return userT;
 }
+
+export const USER_COLLECTION_NAME = "users";

@@ -6,8 +6,10 @@ import { BaseSyntheticEvent, useState } from "react";
 import { registerWhitEmailAndPassword } from "../firebase/authentication";
 import { addToCollection } from "../firebase/db";
 
+import { USER_COLLECTION_NAME } from "../firebase/templates/user";
+
 export default function Register() {
-    const USER_COLLECTION_NAME = "users";
+    
     const [error, setError] = useState<FirebaseError>();
 
     const registerUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
