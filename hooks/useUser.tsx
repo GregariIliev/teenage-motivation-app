@@ -4,13 +4,15 @@ import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
 import { UserAuth } from '../types/userInterface';
+import { DocumentData } from 'firebase/firestore';
 
 const useUser = (): UserAuth => {
 
     const [user, setUser] = useState<User>();
+    const [userData, setUserData] = useState<DocumentData>();
 
     const router = useRouter();
-
+    
     useEffect(() => {
         checkAuthState((user: User) => {
             if (user) {
@@ -20,9 +22,16 @@ const useUser = (): UserAuth => {
                 router.replace('/login');
             }
         });
-    }, [user])
+    }, [user]);
 
-    return { user }
+
+    const updateUserStateData = (userData: DocumentData) => {
+        console.log(userData);
+        
+        setUserData(userData);
+    }    
+
+    return { user, updateUserStateData }
 }
 
 export default useUser;
