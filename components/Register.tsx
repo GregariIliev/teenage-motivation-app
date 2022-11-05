@@ -7,7 +7,7 @@ import { registerWhitEmailAndPassword } from "../firebase/authentication";
 import { addToCollection } from "../firebase/db";
 
 export default function Register() {
-
+    const USER_COLLECTION_NAME = "users";
     const [error, setError] = useState<FirebaseError>();
 
     const registerUserWhitEmailAndPassword = (e: BaseSyntheticEvent) => {
@@ -34,7 +34,7 @@ export default function Register() {
         registerWhitEmailAndPassword(email, password)
             .then(async (user) => {
                 if (user) {
-                    await addToCollection("users", user.user, fullName);
+                    await addToCollection(USER_COLLECTION_NAME, user.user, fullName);
                     router.push('/login');
                 }
             }).catch(err => {
