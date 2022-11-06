@@ -3,7 +3,7 @@ import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
-import { UserState } from '../types/userInterface';
+import { UserState } from '../interfaces/userInterface';
 import { DocumentData } from 'firebase/firestore';
 
 const useUser = (): UserState => {

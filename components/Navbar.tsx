@@ -12,6 +12,7 @@ import styles from '../styles/Navbar.module.css';
 const Navbar: NextPage = () => {
 
     const { user } = useContext(UserContext);
+console.log(user);
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();

@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import { UserCollection } from "../../types/userInterface";
+import { UserCollection } from "../../interfaces/userInterface";
 
 export const userTemplate = (user: User, fullName: string) => {
     const userT: UserCollection = {
