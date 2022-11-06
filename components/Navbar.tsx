@@ -23,7 +23,7 @@ const Navbar: NextPage = () => {
         <nav className={styles['navbar']}>
             <ul className={styles['navbar-ul-navigation']}>
                 <li className="li p-0 m-2">
-                    <Link href='/tasks'>Today’s Tasks</Link>
+                    <Link href='/'>Today’s Tasks</Link>
                 </li>
                 <li className="li p-0 m-2">
                     <Link href='/done-tasks'>Done Tasks</Link>
