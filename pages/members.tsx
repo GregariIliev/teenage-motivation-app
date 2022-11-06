@@ -1,9 +1,10 @@
 import { NextPage } from "next";
+import Members from "../components/Members";
+
+import '../styles/Members.module.css';
 
 const MembersPage: NextPage = () => {
-    return (
-        <div>asd</div>
-    )
+    return <Members />
 }
 
 export default MembersPage;
