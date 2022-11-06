@@ -3,12 +3,12 @@ import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
 import { useRouter } from 'next/router';
-import { UserAuth } from '../types/userInterface';
+import { UserState } from '../types/userInterface';
 import { DocumentData } from 'firebase/firestore';
 
-const useUser = (): UserAuth => {
+const useUser = (): UserState => {
 
-    const [user, setUser] = useState<User>();
+    const [userAuth, setUser] = useState<User>();
     const [userData, setUserData] = useState<DocumentData>();
 
     const router = useRouter();
