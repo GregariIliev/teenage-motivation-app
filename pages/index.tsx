@@ -4,11 +4,11 @@ import TodayTasks from '../components/TodayTasks';
 import { UserContext } from '../context/userContext';
 import { useContext } from 'react';
 
-const HomeImpl: NextPage = () => {
+const TodayTasksPage: NextPage = () => {
 
   const { user } = useContext(UserContext);
 
   return user ? <TodayTasks /> : null;
 }
 
-export default HomeImpl;
+export default TodayTasksPage;
