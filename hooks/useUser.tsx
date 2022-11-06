@@ -17,6 +17,7 @@ const useUser = (): UserState => {
         setUserData(userData);
     }
 
+    const user = { userAuth, userData }
 
     useEffect(() => {
         checkAuthState((user: User) => {
