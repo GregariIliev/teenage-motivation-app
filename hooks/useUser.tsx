@@ -26,8 +26,6 @@ const useUser = (): UserAuth => {
 
 
     const updateUserStateData = (userData: DocumentData) => {
-        console.log(userData);
-        
         setUserData(userData);
     }    
 
