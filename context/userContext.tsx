@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { UserAuth } from '../interfaces/userInterface';
+import { UserState } from '../interfaces/userInterface';
 
-export const UserContext = createContext<UserAuth>({user: undefined});
+export const UserContext = createContext<UserState | undefined>(undefined);
