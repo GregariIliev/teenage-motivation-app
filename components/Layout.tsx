@@ -1,13 +1,19 @@
 import { PropsWithChildren } from "react";
+import Aside from "./Aside";
+import Navbar from "./Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
 
 
     return (
         <>
-            <div>
+            <header>
+                <Navbar />
+            </header>
+            <main className="main">
                 {children}
-            </div>
+                <Aside />
+            </main>
         </>
     )
 }
