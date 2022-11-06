@@ -1,4 +1,5 @@
 import TaskCard from "./TaskCard";
+import ButtonAddTask from "./ButtonAddTask";
 import styles from "../styles/Tasks.module.css";
 
 export default function Tasks() {
@@ -15,12 +16,9 @@ export default function Tasks() {
 
     return (
         <>
-            <div className={styles['create-task-button-container']}>
-                <button className={styles['create-task-button']}><span>&#43;</span></button>
-                <span><i>12 Sep 1200</i></span>
-            </div>
+            <ButtonAddTask />
             <div className={styles['tasks-container']}>
-                {tasks.map(t => <TaskCard key={t.name} task={t}/>)}
+                {tasks.map(t => <TaskCard key={t.name} task={t} />)}
             </div>
         </>
     )
