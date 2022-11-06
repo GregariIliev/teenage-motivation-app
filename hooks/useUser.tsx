@@ -12,7 +12,12 @@ const useUser = (): UserState => {
     const [userData, setUserData] = useState<DocumentData>();
 
     const router = useRouter();
-    
+
+    const updateUserStateData = (userData: DocumentData) => {
+        setUserData(userData);
+    }
+
+
     useEffect(() => {
         checkAuthState((user: User) => {
             if (user) {
@@ -22,12 +27,7 @@ const useUser = (): UserState => {
                 router.replace('/login');
             }
         });
-    }, [user]);
-
-
-    const updateUserStateData = (userData: DocumentData) => {
-        setUserData(userData);
-    }    
+    }, [userAuth]);
 
     return { user, updateUserStateData }
 }
