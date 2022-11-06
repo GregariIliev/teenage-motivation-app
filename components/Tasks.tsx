@@ -15,7 +15,7 @@ export default function Tasks() {
     ]
 
     return (
-        <div>
+        <>
             <div className={styles['task-create']}>
                 <button className={styles['create-task-button']}><span>&#43;</span></button>
                 <span><i>12 Sep 1200</i></span>
@@ -34,7 +34,7 @@ export default function Tasks() {
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     )
 
 }
