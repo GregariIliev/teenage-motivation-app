@@ -6,8 +6,7 @@ export interface UserState {
         userAuth: User | undefined,
         userData: DocumentData | undefined
     },
-    updateUserStateData(userData: DocumentData): void
-
+    updateUserStateData(userData: DocumentData | undefined): void
 }
 
 export interface UserCollection {
