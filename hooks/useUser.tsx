@@ -25,6 +25,7 @@ const useUser = (): UserState => {
                 setUser(user);
             } else {
                 setUser(undefined);
+                setUserData(undefined);
                 router.replace('/login');
             }
         });
