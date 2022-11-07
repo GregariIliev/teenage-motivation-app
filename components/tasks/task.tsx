@@ -1,38 +1,16 @@
-import { useState } from 'react'
+import ToDo from "./types";
 
-function Task(props) {
-    let task = props.task;
-
-    function StatusTask(e) {
-        if (e.target.name === 'notDone') {
-            e.target.style.color = 'green'
-            e.target.name = "done"
-        } else {
-            e.target.style.color = "red"
-            e.target.name = "notDone"
-        }
-    }
-
-
-    function DeleteElement(element) {
-
-    }
-
-    return (
-        task.map((i) =>
-        (<div className={i}>
-            <p >
-                {i}
-            </p >
-            <button onClick={() => DeleteElement(i)} >delete</button>
-            <button onClick={StatusTask} name='notDone'>done</button>
-
-        </div >
-        ))
-
-    )
-
+function Task( props: {tasks:ToDo[]}){
+    return(<div>
+            {
+                props.tasks.map((task)=>(
+                    <div>
+                        <h3>{task.name}</h3>
+                        <br/>
+                        <h3>Should be done by: {task.expirationDate}</h3>
+                    </div>
+                ))
+            }
+        </div>)
 }
-
-
 export default Task;

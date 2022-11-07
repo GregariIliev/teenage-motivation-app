@@ -1,36 +1,45 @@
 import Task from './task';
-import { useState } from 'react';
+import { useState,FormEvent , ChangeEvent} from 'react';
 import styles from "../../styles/task-styles.module.css"
+import ToDo from './types';
+
 
 function TaskCreator() {
-    const [task, setTask] = useState('')
-    const [taskList, setTaskList] = useState([])
+    const [taskName, setTaskName] = useState('');
+    const [taskList, setTaskList] = useState<Array<ToDo>>([])
+    const [taskDate,setTaskDate]=useState('')
     
-    function InputCatch(e) {
-        setTask(e.target.value)
+    const handleSubmit=(submitEvent : FormEvent)=>{
+        submitEvent.preventDefault();
+        setTaskList([...taskList,{
+            name : taskName,
+            done: false,
+            expirationDate: taskDate
+        }])
+        setTaskName('');
+        setTaskDate('')
     }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const form = new FormData(e.target)
-        console.log(e)
-        const taskTitle = form.get('task-title');
-        setTaskList([taskTitle, ...taskList])
-        setTask('')
-
-
+    const handleChange=(changeEvent: ChangeEvent<HTMLInputElement>)=>{
+        setTaskName(changeEvent.target.value)
     }
-    return (
-        <div>
-            <form className='input-form' onSubmit={handleSubmit}>
+    const handleDate =(changeEvent: ChangeEvent<HTMLInputElement>)=>{
+        setTaskDate(changeEvent.target.value)
+    }
 
-                <input type="text" name="task-title" placeholder='Input task name' onChange={InputCatch} value={task} />
-                <input type="submit" value="submit" />
-            </form>
+
+    return<div>
+        <form onSubmit={handleSubmit}>
+            <input type="text" onChange={handleChange} value={taskName} placeholder="Enter name" />
+
+            <input type="date" onChange={handleDate} value={taskDate}/>
+            <input type="submit"  />
+        </form>
+
             <div className={styles.taskList}>
-                <Task task={taskList} />
+                <Task tasks={taskList} />
             </div>
         </div>
-    )
+    
 }
 
 export default TaskCreator;

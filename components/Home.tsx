@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import styles from '../styles/Home.module.css';
 import TaskList from "./tasks/task-list";
+import TaskCreator from "./tasks/task-creator";
 export default function Home() {
     return (
         <>
@@ -17,7 +18,8 @@ export default function Home() {
                 Hello World!
             </main>
             <footer className={styles.footer}>
-                <TaskList />
+                
+                <TaskCreator/>
             </footer>
         </>
     )
