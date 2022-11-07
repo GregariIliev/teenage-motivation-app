@@ -6,7 +6,7 @@ import { BaseSyntheticEvent, useState } from 'react';
 import { facebookAuth, loginInWithEmailAndPassword } from '../firebase/authentication';
 import { getUserCollectionById } from '../firebase/db';
 
-import useUser from '../hooks/useUser';
+import useUser from '../entities/useUser';
 
 export default function Login() {
 
