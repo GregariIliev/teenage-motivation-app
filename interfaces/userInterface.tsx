@@ -2,12 +2,14 @@ import { User } from "firebase/auth";
 import { DocumentData } from "firebase/firestore";
 
 export interface UserState {
-    user: UserTMApp | undefined;
+    user: UserTMAppInt | undefined;
 }
 
-export interface UserTMApp {
+export interface UserTMAppInt {
     userAuth: User | undefined;
     userData: DocumentData | undefined;
+    setAuth(userAuth: User): void,
+    setUserData(userData: DocumentData): void
 }
 
 

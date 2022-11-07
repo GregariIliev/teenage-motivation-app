@@ -5,11 +5,12 @@ import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
 import { getUserCollectionById } from '../firebase/db';
-import { UserState, UserTMApp } from '../interfaces/userInterface';
+import { UserState, UserTMAppInt } from '../interfaces/userInterface';
+import { UserTMApp } from '../entities/userTMApp';
 
 const useUser = (): UserState => {
 
-    const [user, setUser] = useState<UserTMApp>();
+    const [user, setUser] = useState<UserTMAppInt>();
 
     const router = useRouter();
 
@@ -17,16 +18,16 @@ const useUser = (): UserState => {
         checkAuthState(async (user: User) => {
             if (user) {
 
-                const userTMApp: UserTMApp = {
-                    userAuth: user,
-                    userData: undefined
-                }
+                const userTMApp = new UserTMApp();
+
+                userTMApp.setAuth(user);
 
                 const usersSnapshot = await getUserCollectionById(user.uid);
 
                 if (usersSnapshot?.size === 1) {
                     usersSnapshot.forEach((u) => {
-                        userTMApp.userData = u.data();
+                        const userData = u.data();
+                        userTMApp.setUserData(userData);
                     })
                 }
 
