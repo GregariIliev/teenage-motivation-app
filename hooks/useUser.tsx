@@ -36,7 +36,7 @@ const useUser = (): UserState => {
                 router.replace('/login');
             }
         });
-    }, [user]);
+    }, []);
 
     return { user }
 }
