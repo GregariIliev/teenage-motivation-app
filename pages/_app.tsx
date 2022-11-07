@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <UserContext.Provider value={user}>

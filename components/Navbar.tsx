@@ -11,7 +11,7 @@ import styles from '../styles/Navbar.module.css';
 
 const Navbar: NextPage = () => {
 
-    const { user } = useContext(UserContext);
+    const user = useContext(UserContext);
 
     const handleUserSingOut = (e: any) => {
         e.preventDefault();
@@ -56,7 +56,7 @@ const Navbar: NextPage = () => {
                 }
             </ul>
             <ul className={styles['navbar-ul-username']}>
-                <li><span>Welcome {user?.email}!</span></li>
+                <li><span>Welcome {user?.userAuth?.email}!</span></li>
             </ul>
         </nav>
     )

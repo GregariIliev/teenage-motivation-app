@@ -7,7 +7,7 @@ import Head from 'next/head';
 
 const TodayTasksPage: NextPage = () => {
 
-  const { user } = useContext(UserContext);
+  const user  = useContext(UserContext);
 
   return user ?
     <>

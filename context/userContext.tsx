@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { UserState } from '../interfaces/userInterface';
+import { UserTMApp } from '../interfaces/userInterface';
 
-export const UserContext = createContext<UserState | undefined>(undefined);
+export const UserContext = createContext<UserTMApp | undefined>();

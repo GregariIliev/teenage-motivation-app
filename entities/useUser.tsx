@@ -1,40 +1,42 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+
 import { User } from "firebase/auth";
 import { checkAuthState } from '../firebase/authentication';
 
-import { useRouter } from 'next/router';
-import { UserState } from '../interfaces/userInterface';
-import { DocumentData } from 'firebase/firestore';
 import { getUserCollectionById } from '../firebase/db';
+import { UserState, UserTMApp } from '../interfaces/userInterface';
 
 const useUser = (): UserState => {
 
-    const [userAuth, setUser] = useState<User>();
-    const [userData, setUserData] = useState<DocumentData>();
+    const [user, setUser] = useState<UserTMApp>();
 
     const router = useRouter();
 
-    const user = { userAuth, userData }
-
     useEffect(() => {
-        checkAuthState(async(user: User) => {
+        checkAuthState(async (user: User) => {
             if (user) {
-                setUser(user);
+
+                const userTMApp: UserTMApp = {
+                    userAuth: user,
+                    userData: undefined
+                }
 
                 const usersSnapshot = await getUserCollectionById(user.uid);
-
+                
                 if (usersSnapshot) {
                     usersSnapshot.forEach((u) => {
-                        setUserData(u.data());
+                        userTMApp.userData = u.data();
                     })
                 }
+
+                setUser(userTMApp);
             } else {
                 setUser(undefined);
-                setUserData(undefined);
                 router.replace('/login');
             }
         });
-    }, [userAuth]);
+    }, [user]);
 
     return { user }
 }
