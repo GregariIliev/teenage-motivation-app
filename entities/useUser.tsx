@@ -5,6 +5,7 @@ import { checkAuthState } from '../firebase/authentication';
 import { useRouter } from 'next/router';
 import { UserState } from '../interfaces/userInterface';
 import { DocumentData } from 'firebase/firestore';
+import { getUserCollectionById } from '../firebase/db';
 
 const useUser = (): UserState => {
 
@@ -13,16 +14,20 @@ const useUser = (): UserState => {
 
     const router = useRouter();
 
-    const updateUserStateData = (userData: DocumentData) => {
-        setUserData(userData);
-    }
-
     const user = { userAuth, userData }
 
     useEffect(() => {
-        checkAuthState((user: User) => {
+        checkAuthState(async(user: User) => {
             if (user) {
                 setUser(user);
+
+                const usersSnapshot = await getUserCollectionById(user.uid);
+
+                if (usersSnapshot) {
+                    usersSnapshot.forEach((u) => {
+                        setUserData(u.data());
+                    })
+                }
             } else {
                 setUser(undefined);
                 setUserData(undefined);
@@ -31,7 +36,7 @@ const useUser = (): UserState => {
         });
     }, [userAuth]);
 
-    return { user, updateUserStateData }
+    return { user }
 }
 
 export default useUser;

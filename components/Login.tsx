@@ -4,7 +4,6 @@ import router from 'next/router';
 
 import { BaseSyntheticEvent, useState } from 'react';
 import { facebookAuth, loginInWithEmailAndPassword } from '../firebase/authentication';
-import { getUserCollectionById } from '../firebase/db';
 
 import useUser from '../entities/useUser';
 
@@ -29,13 +28,6 @@ export default function Login() {
         loginInWithEmailAndPassword(email, password)
             .then(async (user) => {
                 if (user) {
-                    const usersSnapshot = await getUserCollectionById(user.user.uid);
-
-                    if (usersSnapshot) {
-                        usersSnapshot.forEach((u) => {
-                            updateUserStateData(u.data());
-                        })
-                    }
                     router.push('/');
                 }
             }).catch(err => {
