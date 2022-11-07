@@ -1,24 +1,20 @@
-import { PropsWithChildren } from "react";
-import { useRouter } from "next/router";
+import { PropsWithChildren, useContext } from "react";
+import { UserContext } from "../context/userContext";
 import Aside from "./Aside";
 import Navbar from "./Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
 
-    const router = useRouter();
+    const user = useContext(UserContext);
 
     return (
         <>
             <header>
-                {router.pathname === "/login" || router.pathname === "/register"
-                    ? null
-                    : <Navbar />}
+                {user ? <Navbar /> : null}
             </header>
             <main className="main">
                 {children}
-                {router.pathname === "/login" || router.pathname === "/register"
-                    ? null
-                    : <Aside />}
+                {user ? <Aside /> : null}
             </main>
         </>
     )
