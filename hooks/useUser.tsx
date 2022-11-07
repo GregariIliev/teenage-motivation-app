@@ -23,8 +23,8 @@ const useUser = (): UserState => {
                 }
 
                 const usersSnapshot = await getUserCollectionById(user.uid);
-                
-                if (usersSnapshot) {
+
+                if (usersSnapshot?.size === 1) {
                     usersSnapshot.forEach((u) => {
                         userTMApp.userData = u.data();
                     })
