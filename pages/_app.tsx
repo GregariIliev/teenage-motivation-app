@@ -4,7 +4,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
 import { UserContext } from '../context/userContext';
-import useUser from '../entities/useUser';
+import useUser from '../hooks/useUser';
 import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {

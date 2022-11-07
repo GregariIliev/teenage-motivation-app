@@ -5,7 +5,7 @@ import router from 'next/router';
 import { BaseSyntheticEvent, useState } from 'react';
 import { facebookAuth, loginInWithEmailAndPassword } from '../firebase/authentication';
 
-import useUser from '../entities/useUser';
+import useUser from '../hooks/useUser';
 
 export default function Login() {
 
