@@ -26,8 +26,7 @@ const useUser = (): UserState => {
 
                 if (usersSnapshot?.size === 1) {
                     usersSnapshot.forEach((u) => {
-                        const userData = u.data();
-                        userTMApp.setUserData(userData);
+                        userTMApp.setUserData(u.data());
                     })
                 }
 
