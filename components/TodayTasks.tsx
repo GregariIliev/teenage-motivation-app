@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Tasks from "./Tasks";
 
 import styles from '../styles/TodayTasks.module.css';
