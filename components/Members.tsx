@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import styles from '../styles/Members.module.css';
 
 export default function Members() {
