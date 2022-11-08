@@ -1,6 +1,8 @@
 import { User } from "firebase/auth";
 import { DocumentData } from "firebase/firestore";
 
+import { FamilyInt } from '../interfaces/familyInterface';
+
 export interface UserState {
     user: UserTMAppInt | undefined;
 }
@@ -17,7 +19,7 @@ export interface UserCollection {
     userAuthId: string;
     fullName: string;
     rol: string;
-    family: {};
+    family: FamilyInt;
     requestMembers: string[];
     currentTasks: [];
     doneTasks: [];
