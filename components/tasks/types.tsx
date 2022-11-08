@@ -1,7 +1,8 @@
-type ToDo ={
-    name : String,
-    done : Boolean,
+type ToDo = {
+    name: String,
+    done: Boolean,
     expirationDate?: String,
-    description? : String
+    description?: String
+
 };
 export default ToDo;
