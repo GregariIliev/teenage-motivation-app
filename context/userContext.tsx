@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { UserTMApp } from '../interfaces/userInterface';
+import { UserTMAppInt } from '../interfaces/userInterface';
 
 export const UserContext = createContext<UserTMAppInt | undefined>(undefined);
