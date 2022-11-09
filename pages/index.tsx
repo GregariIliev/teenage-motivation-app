@@ -1,15 +1,14 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
-import TodayTasks from '../components/TodayTasks';
-import { UserContext } from '../context/userContext';
-import { useContext } from 'react';
-import Head from 'next/head';
+import TodayTasks from "../components/TodayTasks";
+import { UserContext } from "../context/userContext";
+import { useContext } from "react";
+import Head from "next/head";
 
 const TodayTasksPage: NextPage = () => {
+  const user = useContext(UserContext);
 
-  const user  = useContext(UserContext);
-
-  return user ?
+  return user ? (
     <>
       <Head>
         <title>Today Tasks</title>
@@ -18,7 +17,7 @@ const TodayTasksPage: NextPage = () => {
       </Head>
       <TodayTasks />
     </>
-    : null;
-}
+  ) : null;
+};
 
 export default TodayTasksPage;
