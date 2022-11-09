@@ -1,16 +1,16 @@
 import { User } from "firebase/auth";
-import { UserCollection } from "../../interfaces/userInterface";
+import { UserFirestoreCollection } from "../../interfaces/userInterface";
 
 export const userTemplate = (user: User, fullName: string) => {
-    const userT: UserCollection = {
+    
+    const userT: UserFirestoreCollection = {
         userAuthId: user.uid,
         fullName: fullName,
-        rol: "",
-        family: {},
+        familyId: "",
         requestMembers: [],
         currentTasks: [],
         doneTasks: [],
-        points: 0
+        points: 0,
     }
 
     return userT;
