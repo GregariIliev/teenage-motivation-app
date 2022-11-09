@@ -14,9 +14,10 @@ export interface UserTMAppInt {
 }
 
 
-export interface UserCollection {
+export interface UserFirestoreCollection {
     userAuthId: string;
     fullName: string;
+    familyId: string;
     requestMembers: string[];
     currentTasks: [];
     doneTasks: [];
