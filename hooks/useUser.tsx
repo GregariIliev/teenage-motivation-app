@@ -23,14 +23,12 @@ const useUser = (): UserState => {
                 userTMApp.setAuth(user);
 
                 const usersSnapshot = await getUserCollectionById(user.uid);
-
-                if (usersSnapshot?.size === 1) {
-                    usersSnapshot.forEach((u) => {
-                        userTMApp.setUserData(u.data());
-                    })
+                if (usersSnapshot?.exists()) {
+                    userTMApp.setUserData(usersSnapshot.data());
+                    setUser(userTMApp);
+                } else {
+                    await user.delete();
                 }
-
-                setUser(userTMApp);
             } else {
                 setUser(undefined);
                 router.replace('/login');
