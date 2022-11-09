@@ -1,5 +1,5 @@
-export interface FamilyInt {
-    uid: string ;
+export interface FamilyInterface {
+    userId: string;
     name: string;
     mother: string;
     father: string;
