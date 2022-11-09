@@ -1,15 +1,15 @@
-import { FamilyInt } from "../interfaces/familyInterface";
+import { FamilyInterface } from "../interfaces/familyInterface";
 
-export class Family implements FamilyInt {
+export class FamilyTMApp implements FamilyInterface {
     constructor(){
-        this.uid = "",
+        this.userId = "",
         this.name = "",
         this.mother = "",
         this.father = "",
         this.childrens = [],
-        this.tasks = [];
+        this.tasks = []
     }
-    uid: string;
+    userId: string;
     name: string;
     mother: string;
     father: string;
