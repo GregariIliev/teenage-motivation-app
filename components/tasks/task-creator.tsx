@@ -6,17 +6,22 @@ import TaskForm from './task-form';
 
 function TaskCreator() {
     const [taskList, setTaskList] = useState<Array<ToDo>>([]);
-    const [taskName, setTaskName] = useState('');
+    const [taskName, setTaskName] = useState<string>('');
     
     const getForm=(submitEvent: FormEvent)=>{
         submitEvent.preventDefault();
+        
         setTaskList([...taskList, {
             name: taskName,
             done: false
-        }])  
+        }]);
+
+        setTaskName('')
     }
-    const getTaskName = (change: string)=>{
-        setTaskName(change)
+
+
+    const getTaskName = (change: ChangeEvent<HTMLInputElement>)=>{
+        setTaskName(change.target.value)
     }
 
     const deleteTask = (id: number) => {
@@ -25,7 +30,7 @@ function TaskCreator() {
     }
     return <div>
         <div className={styles.taskList}>
-            <TaskForm getTaskName={getTaskName} getForm={getForm} />
+            <TaskForm getTaskName={getTaskName} getForm={getForm} resetValue={taskName} />
             <Tasks tasks={taskList} deleteTask={deleteTask} />
         </div>
     </div>
