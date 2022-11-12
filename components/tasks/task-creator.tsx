@@ -1,30 +1,22 @@
-import Task from './tasks';
+import Tasks from './tasks';
 import { useState, FormEvent, ChangeEvent } from 'react';
-import styles from "../../styles/task-styles.module.css"
+import styles from "../../styles/task-styles.module.css";
 import ToDo from './types';
-
+import TaskForm from './task-form';
 
 function TaskCreator() {
+    const [taskList, setTaskList] = useState<Array<ToDo>>([]);
     const [taskName, setTaskName] = useState('');
-    const [taskList, setTaskList] = useState<Array<ToDo>>([])
-    const [taskDate, setTaskDate] = useState('')
-
-    const handleSubmit = (submitEvent: FormEvent) => {
+    
+    const getForm=(submitEvent: FormEvent)=>{
         submitEvent.preventDefault();
         setTaskList([...taskList, {
             name: taskName,
-            done: false,
-            expirationDate: taskDate
-
-        }])
-        setTaskName('');
-        setTaskDate('')
+            done: false
+        }])  
     }
-    const handleChange = (changeEvent: ChangeEvent<HTMLInputElement>) => {
-        setTaskName(changeEvent.target.value)
-    }
-    const handleDate = (changeEvent: ChangeEvent<HTMLInputElement>) => {
-        setTaskDate(changeEvent.target.value)
+    const getTaskName = (change: string)=>{
+        setTaskName(change)
     }
 
     const deleteTask = (id: number) => {
@@ -32,10 +24,9 @@ function TaskCreator() {
         setTaskList([...taskList])
     }
     return <div>
-
-
         <div className={styles.taskList}>
-            <Task tasks={taskList} deleteTask={deleteTask} />
+            <TaskForm getTaskName={getTaskName} getForm={getForm} />
+            <Tasks tasks={taskList} deleteTask={deleteTask} />
         </div>
     </div>
 

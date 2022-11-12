@@ -1,6 +1,13 @@
-{/* <form onSubmit={handleSubmit}>
-    <input type="text" onChange={handleChange} value={taskName} placeholder="Enter name" />
+import { useState, FormEvent, ChangeEvent } from 'react';
+import ToDo from './types';
 
-    <input type="date" onChange={handleDate} value={taskDate} />
-    <input type="submit" />
-</form> */}
+function TaskForm(props:{getTaskName:(change: string)=>void,getForm:(submitEvent: FormEvent)=>void}) {
+    
+ 
+    return (<form onSubmit={props.getForm}>
+        <input type="text" onChange={(e)=>props.getTaskName(e.target.value)}  placeholder="Enter name" />
+        <input type="submit" />
+    </form>)
+}
+
+export default TaskForm
